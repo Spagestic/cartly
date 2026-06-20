@@ -1,0 +1,89 @@
+{
+  "citysuper_stores": {
+    "main_stores": [
+      {
+        "name": "city'super Central",
+        "mall": "ifc Mall",
+        "address": "Shop 1041-1049, L1, ifc Mall, 8 Finance Street, Central, Hong Kong",
+        "coordinates": {
+          "latitude": 22.285,
+          "longitude": 114.1592
+        }
+      },
+      {
+        "name": "city'super Causeway Bay",
+        "mall": "Times Square",
+        "address": "Basement 1, Times Square, Causeway Bay, Hong Kong",
+        "coordinates": {
+          "latitude": 22.2783,
+          "longitude": 114.1822
+        }
+      },
+      {
+        "name": "city'super Tsim Sha Tsui",
+        "mall": "Harbour City",
+        "address": "Gateway Arcade Level 3, Shop 3001, Harbour City, Tsim Sha Tsui, Kowloon",
+        "coordinates": {
+          "latitude": 22.2975,
+          "longitude": 114.1686
+        }
+      },
+      {
+        "name": "city'super Shatin",
+        "mall": "New Town Plaza",
+        "address": "New Town Plaza 1, Level 2, Shops 204-214, Sha Tin, New Territories",
+        "coordinates": {
+          "latitude": 22.3819,
+          "longitude": 114.1883
+        }
+      },
+      {
+        "name": "city'super Wong Chuk Hang",
+        "mall": "THE SOUTHSIDE",
+        "address": "Shop 308-313, Level 3, THE SOUTHSIDE, 11 Heung Yip Road, Wong Chuk Hang, Hong Kong Island",
+        "coordinates": {
+          "latitude": 22.2478,
+          "longitude": 114.1669
+        }
+      },
+      {
+        "name": "city'super Kai Tak",
+        "mall": "AIRSIDE",
+        "address": "Basement 1, Shops B101, B101A, B102-B110, AIRSIDE, 2 Concorde Road, Kai Tak, Kowloon",
+        "coordinates": {
+          "latitude": 22.3315,
+          "longitude": 114.1982
+        }
+      }
+    ],
+    "logon_popup_stores": [
+      {
+        "name": "city'super LOG-ON Admiralty",
+        "mall": "Queensway Plaza",
+        "address": "Shop C03, LAB Concept, Queensway Plaza, 93 Queensway, Admiralty, Hong Kong",
+        "coordinates": {
+          "latitude": 22.2789,
+          "longitude": 114.1645
+        }
+      },
+      {
+        "name": "city'super LOG-ON Tsim Sha Tsui",
+        "mall": "K11 Art Mall",
+        "address": "Shop B212, Basement 2, K11 Art Mall, 18 Hanoi Road, Tsim Sha Tsui, Kowloon",
+        "coordinates": {
+          "latitude": 22.2977,
+          "longitude": 114.1737
+        }
+      },
+      {
+        "name": "city'super LOG-ON Kwai Fong",
+        "mall": "Metro Plaza",
+        "address": "Shop 01, B1, Metroplaza, 223 Hing Fong Road, Kwai Fong, New Territories",
+        "coordinates": {
+          "latitude": 22.3575,
+          "longitude": 114.1267
+        }
+      }
+    ]
+  }
+}
