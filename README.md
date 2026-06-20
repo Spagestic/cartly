@@ -1,6 +1,8 @@
-# Convex + Next.js template
+# Cartly
 
-A full-stack starter with [Convex](https://convex.dev) as the backend, [Next.js](https://nextjs.org/) App Router for the frontend, and batteries included for auth, AI chat, and UI.
+A CitySuper shopping assistant built with [Convex](https://convex.dev) as the backend, [Next.js](https://nextjs.org/) App Router for the frontend, and batteries included for auth, AI chat, and UI.
+
+![alt text](image.png)
 
 ## Stack
 
@@ -34,7 +36,7 @@ A full-stack starter with [Convex](https://convex.dev) as the backend, [Next.js]
 
 ## Quick start
 
-1. **Use this template** — Create a repo from the template or clone it, then install dependencies:
+1. **Clone the repo** — `git clone https://github.com/Spagestic/cartly`, then install dependencies:
 
    ```bash
    bun install
