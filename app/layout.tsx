@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title: "Next.js + Convex Template",
   description: "",
   icons: {
-    icon: "/convex.svg",
+    icon: "/cartly_logo.png",
   },
 };
 

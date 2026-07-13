@@ -12,10 +12,10 @@ export default function SignupPage() {
               alt="Logo"
               className="size-8 pixel-crisp dark:invert"
               height={40}
-              src="/convex.svg"
+              src="/cartly_logo.png"
               width={40}
             />
-            <span className="font-medium">Logo</span>
+            <span className="font-bold -ml-2">Cartly</span>
           </Link>
         </div>
         <div className="flex flex-1 items-center justify-center">
