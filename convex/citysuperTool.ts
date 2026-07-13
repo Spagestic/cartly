@@ -12,8 +12,9 @@ const citysuperSearchInputSchema = z.object({
     .string()
     .min(1)
     .describe(
-      "One search phrase for the whole turn (e.g. 'extra virgin olive oil 500ml' or '特級初榨橄欖油'). " +
-        "Do not run multiple searches with different keywords—refine this query instead.",
+      "Product keywords only (e.g. 'extra virgin olive oil 500ml' or '特級初榨橄欖油'). " +
+        "Do not include budget, HKD amounts, or 'best'—filter price after results. " +
+        "One search per turn; do not run multiple searches with different keywords.",
     ),
   locale: z
     .enum(CITYSUPER_LOCALES)
@@ -92,6 +93,17 @@ export const citysuperSearch = createTool({
         page_count,
       },
     );
+
+    if (ctx.threadId) {
+      await ctx.runMutation(
+        internal.citysuper.turnGuard.saveCitysuperSearchProducts,
+        {
+          threadId: ctx.threadId,
+          products: result.products,
+        },
+      );
+    }
+
     return result;
   },
 });

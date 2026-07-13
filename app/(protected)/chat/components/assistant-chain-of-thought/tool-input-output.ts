@@ -187,7 +187,9 @@ export function getCitysuperResultCount(output: unknown): number | undefined {
 }
 
 export function getShowCitysuperProductCount(output: unknown): number {
-  return parseCitysuperProducts(output).length
+  if (!output || typeof output !== "object") return 0
+  const products = (output as Record<string, unknown>).products
+  return Array.isArray(products) ? products.length : 0
 }
 
 function titleFromMetadataRecord(meta: Record<string, unknown>): string | null {

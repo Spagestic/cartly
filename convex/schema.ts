@@ -34,5 +34,22 @@ export default defineSchema({
     threadId: v.string(),
     promptMessageId: v.string(),
     searchCount: v.number(),
+    /** Products from the successful citysuperSearch in this turn (source of truth). */
+    products: v.optional(
+      v.array(
+        v.object({
+          position: v.optional(v.number()),
+          name: v.string(),
+          brand: v.optional(v.string()),
+          product_url: v.string(),
+          image_url: v.optional(v.string()),
+          regular_price_hkd: v.optional(v.number()),
+          sale_price_hkd: v.optional(v.number()),
+          currency: v.optional(v.string()),
+          size: v.optional(v.string()),
+          availability: v.optional(v.string()),
+        }),
+      ),
+    ),
   }).index("by_thread", ["threadId"]),
 });
