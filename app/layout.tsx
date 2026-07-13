@@ -19,8 +19,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js + Convex Template",
-  description: "",
+  title: "Cartly",
+  description:
+    "Making supermarket shopping feel personal, even in the busiest aisles.",
   icons: {
     icon: "/cartly_logo.png",
   },
