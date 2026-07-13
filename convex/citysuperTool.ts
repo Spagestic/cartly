@@ -26,7 +26,10 @@ const citysuperSearchInputSchema = z.object({
     .enum(CITYSUPER_SORT_OPTIONS)
     .optional()
     .describe(
-      "Sort order: relevance (default), price-ascending (low to high), price-descending (high to low).",
+      "Prefer relevance (default)—best for finding the real product. " +
+        "price-ascending/descending re-sorts relevance hits by price locally; " +
+        "do not rely on Shopify price-sort (it ranks cheap accessories first). " +
+        "For a budget, use relevance and filter prices yourself from results.",
     ),
   limit: z
     .number()

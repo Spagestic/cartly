@@ -15,6 +15,10 @@ import {
   type CitysuperLocale,
   type CitysuperSortBy,
 } from "./schema";
+import {
+  filterProductsByQueryRelevance,
+  sortProductsByPrice,
+} from "./relevance";
 
 const DEFAULT_LIMIT = 24;
 const MAX_LIMIT = 48;
@@ -198,9 +202,19 @@ export const searchProducts = internalAction({
     let scrapedResultCount = 0;
     const searchUrls: string[] = [];
 
+    // Always scrape relevance-ranked pages. Price sort on Shopify buries the
+    // actual product under cheap accessories that merely mention the query.
+    // We re-sort filtered results by price below when requested.
+    const scrapeSort: CitysuperSortBy = "relevance";
+
     for (let offset = 0; offset < pageCount; offset++) {
       const pageNum = startPage + offset;
-      const searchUrl = buildCitysuperSearchUrl(query, sortBy, pageNum, locale);
+      const searchUrl = buildCitysuperSearchUrl(
+        query,
+        scrapeSort,
+        pageNum,
+        locale,
+      );
       searchUrls.push(searchUrl);
 
       const scrapeResult: {
@@ -238,7 +252,15 @@ export const searchProducts = internalAction({
       throw new Error("CitySuper scrape returned no structured products");
     }
 
-    const limitedProducts = merged.slice(0, limit);
+    const relevant = filterProductsByQueryRelevance(query, merged);
+    const ordered =
+      sortBy === "price-ascending"
+        ? sortProductsByPrice(relevant, "ascending")
+        : sortBy === "price-descending"
+          ? sortProductsByPrice(relevant, "descending")
+          : relevant;
+
+    const limitedProducts = ordered.slice(0, limit);
 
     return {
       query,
@@ -247,11 +269,11 @@ export const searchProducts = internalAction({
       page: startPage,
       pages_scraped: pageCount,
       result_count:
-        scrapedResultCount > 0 ? scrapedResultCount : merged.length,
+        scrapedResultCount > 0 ? scrapedResultCount : relevant.length,
       products: limitedProducts,
       search_url:
         searchUrls[0] ??
-        buildCitysuperSearchUrl(query, sortBy, startPage, locale),
+        buildCitysuperSearchUrl(query, scrapeSort, startPage, locale),
     };
   },
 });

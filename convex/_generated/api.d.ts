@@ -16,6 +16,7 @@ import type * as chatAgent from "../chatAgent.js";
 import type * as chatGenerate from "../chatGenerate.js";
 import type * as citysuperTool from "../citysuperTool.js";
 import type * as citysuper_productValidators from "../citysuper/productValidators.js";
+import type * as citysuper_relevance from "../citysuper/relevance.js";
 import type * as citysuper_searchProducts from "../citysuper/searchProducts.js";
 import type * as citysuper_turnGuard from "../citysuper/turnGuard.js";
 import type * as firecrawl_agent from "../firecrawl/agent.js";
@@ -46,6 +47,7 @@ declare const fullApi: ApiFromModules<{
   chatGenerate: typeof chatGenerate;
   citysuperTool: typeof citysuperTool;
   "citysuper/productValidators": typeof citysuper_productValidators;
+  "citysuper/relevance": typeof citysuper_relevance;
   "citysuper/searchProducts": typeof citysuper_searchProducts;
   "citysuper/turnGuard": typeof citysuper_turnGuard;
   "firecrawl/agent": typeof firecrawl_agent;

@@ -130,14 +130,12 @@ export const resolveShowCitysuperProducts = internalQuery({
       byUrl.set(citysuperProductUrlKey(product.product_url), product);
     }
 
-    const missing: string[] = [];
     const products: Array<CitysuperStoredProduct & { note?: string }> = [];
 
     for (const pick of picks) {
       const key = citysuperProductUrlKey(pick.product_url);
       const matched = byUrl.get(key);
       if (!matched) {
-        missing.push(pick.product_url);
         continue;
       }
       products.push({
@@ -146,15 +144,13 @@ export const resolveShowCitysuperProducts = internalQuery({
       });
     }
 
-    if (missing.length > 0) {
-      const sample = cached
-        .slice(0, 5)
-        .map((p) => p.product_url)
-        .join("\n");
+    // Soft-hydrate: keep valid picks so one invented URL doesn't fail the turn.
+    if (products.length === 0) {
+      const validUrls = cached.map((p) => p.product_url).join("\n");
       throw new Error(
-        `showCitysuperProducts only accepts product_url values from the latest citysuperSearch. ` +
-          `${missing.length} pick(s) were not in the search results (do not invent URLs). ` +
-          `Valid examples:\n${sample}`,
+        `None of the product_url picks matched the latest citysuperSearch. ` +
+          `Copy product_url values exactly from search results—do not invent URLs. ` +
+          `Valid product_url values:\n${validUrls}`,
       );
     }
 
