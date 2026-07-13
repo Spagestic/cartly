@@ -10,7 +10,7 @@ export default function SignupPage() {
           <Link href="/" className="flex items-center gap-2 group">
             <Image
               alt="Logo"
-              className="size-8 pixel-crisp dark:invert"
+              className="size-8 pixel-crisp"
               height={40}
               src="/cartly_logo.png"
               width={40}
