@@ -9,7 +9,7 @@ export function ChatSidebarHeader() {
     >
       <NextImage
         alt="Logo"
-        className="pixel-crisp size-8 dark:invert"
+        className="pixel-crisp size-8"
         height={40}
         src="/cartly_logo.png"
         width={40}
