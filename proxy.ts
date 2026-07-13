@@ -25,7 +25,7 @@ export default convexAuthNextjsMiddleware(
       isRedirectIfAuthenticated(request) &&
       (await convexAuth.isAuthenticated())
     ) {
-      return nextjsMiddlewareRedirect(request, "/dashboard");
+      return nextjsMiddlewareRedirect(request, "/chat");
     }
 
     if (isProtectedRoute(request) && !(await convexAuth.isAuthenticated())) {
